@@ -1,8 +1,8 @@
 {
-  "name": "expensify",
+  "name": "budgetcontrol",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Andrew Mead",
+  "author": "Daniel Agustin Tradito",
   "license": "MIT",
   "scripts": {
     "build:dev": "webpack",
