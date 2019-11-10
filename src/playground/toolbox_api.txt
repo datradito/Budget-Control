@@ -1,0 +1,42 @@
+import React, { Component } from 'react';
+import axios from 'axios';
+
+const TXT= 'hola mundo'
+
+class GetEcho extends React.Component {
+    constructor(props)  {
+      super(props);
+      this.state = {
+        text: ''
+      }
+
+    }
+  
+    componentDidMount() {
+      axios.get(' http://echo-serv.tbxnet.com/v1/echo',{
+          params:{
+              text: TXT
+          }
+      })
+        .then(res => {
+          const text = res.data;
+          this.setState({ text });
+          //console.log(text);
+          //console.log(JSON.stringify(text))
+          //return text
+        })
+    }
+  
+    render() {
+      const txtJSON = JSON.stringify(this.state.text);
+      return (
+        <div>
+          <p> {txtJSON} </p>
+        </div>
+
+        );
+    }
+  }
+
+  export default GetEcho;
+

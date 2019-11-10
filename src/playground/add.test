@@ -1,0 +1,33 @@
+const add = (a, b) => a + b;
+const generaSaludo = (nombre = 'Anonimo') => `Hola ${nombre}!`;
+
+// https://jestjs.io/docs/en/api#testname-fn-timeout
+test('dbe sumar numeros', () => {
+    const resultado = add(3,4);
+    //assertion library:
+    // https://jestjs.io/docs/en/expect
+    expect(resultado).toBe(7);
+});
+
+test('dbe ser saludo para nombre', () => {
+    const cadena = generaSaludo('Daniel');
+    expect(cadena).toBe('Hola Daniel!')
+});
+
+test('dbe ser saludo para default', () => {
+    const cadena = generaSaludo();
+    expect(cadena).toBe('Hola Anonimo!')
+});
+
+
+
+
+
+
+
+
+
+// //creo una afirmacion (assertion)    
+    // if(resultado !==7){
+    //     throw new Error(`Sumaste 3 y 4 el resultado fue ${resultado}. Esperaba 7`)
+    // }
