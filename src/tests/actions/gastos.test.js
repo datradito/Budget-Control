@@ -13,7 +13,6 @@ test('deberia ver remove gastos action object', () => {
 });
 
 //editGasto:
-
 test('deberia ver editGasto funcionando', () => {
     const action = editGasto(
         '1234abcd',
@@ -49,7 +48,7 @@ test('deberia ver addGasto action obj con nuevos valores',  () => {
     })
 });
 
-//addGasto default:
+//addGasto default, without data:
 test('deberia ver addGasto action obj con valor x default',  () => {
     const action = addGasto();
     expect(action).toEqual({
@@ -63,5 +62,3 @@ test('deberia ver addGasto action obj con valor x default',  () => {
         }
     });
 });
-
-

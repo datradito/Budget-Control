@@ -9,7 +9,7 @@ export default (gastos, { text, sortBy, fechaInicio, fechaFin}) => {
     return gastos.filter((gasto) => {
         //Logica para filtrar dentro de fechaInicio-fechaFin
         const creadoAtMoment = moment(gasto.creadoAt);
-        const fechaInicioMatch = fechaInicio ? fechaInicio.isSameOrBefore(creadoAtMoment, 'day') : true;            
+        const fechaInicioMatc = fechaInicio ? fechaInicio.isSameOrBefore(creadoAtMoment, 'day') : true;            
         const fechaFinMatch = fechaFin ? fechaFin.isSameOrAfter(creadoAtMoment, 'day') : true;
 
         

@@ -26,7 +26,7 @@ const gastos = [
     }
 ];
 
-//TEST SELECTOR TXT
+//TEST SELECTOR by text value
 test('deberia comenzar test de Selector por Texto', () => {
     const filter = {
         text: 'a',
@@ -39,17 +39,60 @@ test('deberia comenzar test de Selector por Texto', () => {
 
 });
 
-//TEST SELECTOR DATE
+//TEST SELECTOR fechaInicio
 test('deberia comenzar test de Selector por Fecha', () => {
     const filter = {
         text: '',
         sortBy: 'fecha',
-        FechaInicio: moment(0),
+        FechaInicio: 0,
         FechaFin: undefined
     };
 
     const result = Selectgastos(gastos, filter);
-    expect(result).toEqual([gastos[2], gastos[0]]);
+    expect(result).toEqual([gastos[0], gastos[2]]);
 
 });
+
+//TEST SELECTOR BY fechaFin
+test('deberia comenzar test de Selector por FechaFin', () => {
+    const filter = {
+        text: '',
+        sortBy: 'fecha',
+        FechaInicio: moment(0),
+        FechaFin: moment(0).add(5, 'days').valueOf()
+    };
+
+    const result = Selectgastos(gastos, filter);
+    expect(result).toEqual([gastos[0], gastos[1], gastos[2]]);
+
+});
+
+//TEST SELECTOR sort by date
+test('deberia comenzar test de Selector: Orden por Fecha', () => {
+    const filter = {
+        text: '',
+        sortBy: 'fecha',
+        FechaInicio: undefined,
+        FechaFin: undefined
+    };
+
+    const result = Selectgastos(gastos, filter);
+    expect(result).toEqual([gastos[2], gastos[0], gastos[1]]);
+
+});
+
+//TEST SELECTOR sort by amount
+test('deberia comenzar test de Selector: Orden por Importe', () => {
+    const filter = {
+        text: '',
+        sortBy: 'importe',
+        FechaInicio: undefined,
+        FechaFin: undefined
+    };
+
+    const result = Selectgastos(gastos, filter);
+    expect(result).toEqual([gastos[0], gastos[1], gastos[1]]);
+
+});
+
 
