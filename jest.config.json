@@ -1,0 +1,10 @@
+{
+    "setupFiles": [
+        "raf/polyfill",
+        "<rootDir>/src/tests/setupTests.js"
+    ],
+    //para no importar toJSON en el test
+    "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+    ]
+}

@@ -3,7 +3,7 @@
   "plugins": [
     //"transform-class-properties",
     //HABILITA OBJ SPREAD OPERATOR:
-    "transform-object-rest-spread",
+    //"transform-object-rest-spread",
     //Babel
     "@babel/plugin-proposal-class-properties", 
     "@babel/plugin-proposal-object-rest-spread"

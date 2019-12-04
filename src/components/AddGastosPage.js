@@ -16,7 +16,7 @@ const AddGastosPage = (props) => (
                 console.log(gasto);
                 props.dispatch(addGasto(gasto));
                
-                //El componente recibe history kmo prop a travez de react-router, ver API.
+                //El componente recibe history kmo prop a traves de react-router, ver API.
                 //con .push('/') redirigo al dashboard page.
                 props.history.push('./'); 
            }}
