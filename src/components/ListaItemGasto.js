@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //STATELESS FUNCTIONAL COMPONENT:
-const ListaItemGasto = ({ dispatch, id, descrip, importe, creadoAt}) => (
+const ListaItemGasto = ({ id, descrip, importe, creadoAt}) => (
     <div>
         <Link to= {`/edit/${ id }`}>
             <h3>Descripcion: {descrip} </h3> 

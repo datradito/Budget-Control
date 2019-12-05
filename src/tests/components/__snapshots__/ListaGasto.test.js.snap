@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deberia render ListaGasto con gastos 1`] = `
+<div>
+  <ListaItemGasto
+    creadoAt={0}
+    descrip="Gas"
+    id="1"
+    importe={195}
+    key="1"
+    note=""
+  />
+  <ListaItemGasto
+    creadoAt={-345600000}
+    descrip="Luz"
+    id="2"
+    importe={109500}
+    key="2"
+    note=""
+  />
+  <ListaItemGasto
+    creadoAt={345600000}
+    descrip="Varios"
+    id="3"
+    importe={4500}
+    key="3"
+    note=""
+  />
+  <p>
+    Cantidad de gastos: 
+    3
+  </p>
+</div>
+`;
+
+exports[`Deberia render ListaGasto sin gastos 1`] = `
+<div>
+  <p>
+    Sin Gastos
+  </p>
+  <p>
+    Cantidad de gastos: 
+    0
+  </p>
+</div>
+`;
