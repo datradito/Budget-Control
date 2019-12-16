@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deberia render ListaItemGasto con gastos 1`] = `
+<div>
+  <Link
+    to="/edit/1"
+  >
+    <h3>
+      Descripcion: 
+      Gas
+       
+    </h3>
+  </Link>
+  <p>
+     Importe: $
+    195
+     - Fecha: 
+    0
+     milisegundos
+  </p>
+  <p>
+    ID: 
+    1
+     
+  </p>
+</div>
+`;

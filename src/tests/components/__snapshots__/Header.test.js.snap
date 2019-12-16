@@ -7,7 +7,6 @@ exports[`Deberia render Header correctamente 1`] = `
   </h1>
   <NavLink
     activeClassName="is-active"
-    aria-current="page"
     exact={true}
     to="/"
   >
@@ -15,14 +14,12 @@ exports[`Deberia render Header correctamente 1`] = `
   </NavLink>
   <NavLink
     activeClassName="is-active"
-    aria-current="page"
     to="/crear"
   >
     Add GastosPage Test
   </NavLink>
   <NavLink
     activeClassName="is-active"
-    aria-current="page"
     to="/help"
   >
     Help!

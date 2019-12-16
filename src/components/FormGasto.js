@@ -17,7 +17,7 @@ export default class FormGasto extends React.Component{
             creadoAt: props.gasto ? moment(props.gasto.creadoAt) : moment(),
             calendarFocused: false,
             error:'',
-        }
+        };
     }
 
     onChangeDescrip = (e) => {  
@@ -35,14 +35,13 @@ export default class FormGasto extends React.Component{
         
         //REGULAR EXRPESSIONS, ver regex101.com
         if (!importe || importe.match(/^\d{1,}(\.\d{0,2})?$/)) {
-            this.setState( () => ( { importe } ) );
+            this.setState( () => ({ importe }));
         }
     };
 
     onDateChange = (creadoAt) => {
         if (creadoAt) {
             this.setState( () => ({ creadoAt }) );
-    
         }
     };
 
@@ -59,7 +58,7 @@ export default class FormGasto extends React.Component{
         if(!this.state.importe || !this.state.descrip) {
             this.setState( () => (
                 {error: 'Por favor ingrese descripcion e importe...'}
-            ) )
+            ));
         } else {
             this.setState( ()=>({ error:'' }));
             //props.onSubmit vienen desde el componente AddGastosPage pasada como props
@@ -68,7 +67,7 @@ export default class FormGasto extends React.Component{
                 nota: this.state.nota,
                 importe: parseFloat(this.state.importe, 10)*100, //CONVIERTO EL STRING importe EN NUMERO
                 creadoAt: this.state.creadoAt.valueOf(), //USO FUNCION DE moment.js / timestamp
-            })
+            });
         }
     };
 

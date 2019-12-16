@@ -13,3 +13,20 @@ test('Deberia render FormGasto con datos de gastos', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
+test('Deberia render error para submit invalido', () => {
+    const wrapper = shallow(<FormGasto />);
+    expect(wrapper).toMatchSnapshot(); 
+    /**
+     * see https://airbnb.io/enzyme/docs/api/ShallowWrapper/simulate.html
+     */
+    wrapper.find('form').simulate('submit', {
+        prevenDefault: () => {}
+    });
+    /**
+     * see https://airbnb.io/enzyme/docs/api/ShallowWrapper/state.html
+     */
+    expect(wrapper.state('error').length).toBeGreaterThan(0);
+    expect(wrapper).toMatchSnapshot();
+});
+
+
