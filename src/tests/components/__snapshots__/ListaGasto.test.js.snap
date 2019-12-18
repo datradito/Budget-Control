@@ -8,7 +8,7 @@ exports[`Deberia render ListaGasto con gastos 1`] = `
     id="1"
     importe={195}
     key="1"
-    note=""
+    nota=""
   />
   <ListaItemGasto
     creadoAt={-345600000}
@@ -16,7 +16,7 @@ exports[`Deberia render ListaGasto con gastos 1`] = `
     id="2"
     importe={109500}
     key="2"
-    note=""
+    nota=""
   />
   <ListaItemGasto
     creadoAt={345600000}
@@ -24,7 +24,7 @@ exports[`Deberia render ListaGasto con gastos 1`] = `
     id="3"
     importe={4500}
     key="3"
-    note=""
+    nota=""
   />
   <p>
     Cantidad de gastos: 

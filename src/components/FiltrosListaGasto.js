@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import { DateRangePicker } from 'react-dates';
 import { setTextFilter, sortByImporte, sortByFecha, setFechaFin, setFechaInicio } from '../actions/filters';
 
-//VER https://github.com/airbnb/react-dates
+/**
+ * https://github.com/airbnb/react-dates
+ */
 
-//STATELESS FUNCTIONAL COMPONENT:
-class FiltrosListaGasto extends React.Component{
+export class FiltrosListaGasto extends React.Component{
     state = {
         //Necesito seguir el estado de 'calendarFocused' como en <FormGasto/>, default es null y luego pasa a string(calendario 1 o 2)
         calendarFocused: null
@@ -14,16 +15,26 @@ class FiltrosListaGasto extends React.Component{
 
     //SEGUN react-dates library
     onDatesChange = ({ fechaInicio , fechaFin}) => {
-        this.props.dispatch(setFechaInicio(fechaInicio));
-        this.props.dispatch(setFechaFin(fechaFin));
+        this.props.setFechaInicio(fechaInicio);
+        this.props.setFechaFin(fechaFin);
     };
 
     onFocusChange = (calendarFocused) => {
-        //ACTUALIZO EL ESTADO
-        //USO => ({}) EN VEZ DE => { } XQ DEVUELVO IMPLICITAMENTE EL OBJ
         this.setState(() => ( {calendarFocused} ))
     };
 
+    onSortChange = (e) => {
+        if(e.target.value==='fecha'){
+            this.props.sortByFecha();
+        }
+        else if(e.target.value==='importe'){
+            this.props.sortByImporte();
+        }
+    };
+
+    onTextChange =  (e) => {
+        this.props.setTextFilter(e.target.value);
+    };
 
     render() {
         return (
@@ -33,36 +44,20 @@ class FiltrosListaGasto extends React.Component{
                 //Tomo el valor text del filters en el store
                 value={this.props.filters.text} 
                 //Accedo a .dispatch() desde las props porque me lo envia connect()
-                onChange={ ( e ) => {
-                    this.props.dispatch(setTextFilter(e.target.value));
-             }} />
+                onChange={this.onTextChange} />
 
-            {/*Ver <select> en HTML, funciona igual */}
             <select 
                 value={this.props.filters.sortBy}
-                onChange={ (e) => {
-                    if(e.target.value==='fecha'){
-                        this.props.dispatch(sortByFecha());
-                    }
-                    else if(e.target.value==='importe'){
-                        this.props.dispatch(sortByImporte());
-                    }
-                }}
+                onChange={ this.onSortChange }
             >
-                <option value="fecha">Fecha</option>
-                <option value="importe">Importe</option>
+                <option value="Fecha">Fecha</option>
+                <option value="Importe">Importe</option>
             </select>
 
             <DateRangePicker
-                //CONFIG LAS PROPS DateRangePicker SEGUN DOC's
-                
                 startDate={this.props.filters.fechaInicio} // momentPropTypes.momentObj or null,
-                //startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
                 endDate={this.props.filters.fechaFin} // momentPropTypes.momentObj or null,
-                //endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
-                //onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })} // PropTypes.func.isRequired,
                 onDatesChange = {this.onDatesChange}
-                
                 //Toma el valor del state
                 focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
                 onFocusChange={this.onFocusChange} // PropTypes.func.isRequired,
@@ -75,10 +70,17 @@ class FiltrosListaGasto extends React.Component{
     }
 };
 
-const mapStateToProps = (state) => {
-    return {
-        filters : state.filters
-    }
-}
+const mapStateToProps = (state) => ({
+    filters : state.filters
+});
 
-export default connect( mapStateToProps )( FiltrosListaGasto ) ;
+const mapDispatchToProps = () => ({
+    setTextFilter: (text) => dispatch(setTextFilter(text)),
+    sortByFecha: () => dispatch(sortByFecha()),
+    sortByImporte: () => dispatch(sortByImporte()),
+    setFechaInicio: (fechaInicio) => dispatch(setFechaInicio(fechaInicio)),
+    setFechaFin: (fechaFin) => dispatch(setFechaFin(fechaFin)),
+});
+
+
+export default connect( mapStateToProps, mapDispatchToProps)( FiltrosListaGasto ) ;

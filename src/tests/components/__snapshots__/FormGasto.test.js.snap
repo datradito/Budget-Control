@@ -205,6 +205,7 @@ exports[`Deberia render FormGasto con datos de gastos 1`] = `
     <textarea
       onChange={[Function]}
       placeholder="Ingresar nota para el Gasto (opcional)"
+      value=""
     />
     <button>
       Agregar Gasto
