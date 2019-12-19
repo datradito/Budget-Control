@@ -1,8 +1,5 @@
 node_modules
-public/bundles.js
-public/bundles.js.map
-public/style.css
-public/style.css.map
+public/dist
 .vscode
 tmp
 /clases.txt
