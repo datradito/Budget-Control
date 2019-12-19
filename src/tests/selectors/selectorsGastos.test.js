@@ -27,7 +27,7 @@ test('deberia comenzar test de Selector por FechaInicio', () => {
     };
 
     const result = Selectgastos(gastos, filter);
-    expect(result).toEqual([gastos[1], gastos[0], gastos[2] ]);
+    expect(result).toEqual([gastos[2], gastos[0], gastos[1] ]);
 
 });
 

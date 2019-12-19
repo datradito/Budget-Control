@@ -30,7 +30,7 @@ test('NO deberia borrar gasto por ID no encontrada', () => {
 });
 
 test('Deberia ADD_GASTO', () => {
-    const gastoNew = {
+    const gasto = {
         id: '109',
         descrip: 'Otro gasto',
         note:'',
@@ -39,25 +39,25 @@ test('Deberia ADD_GASTO', () => {
     };
     const action = {
         type: 'ADD_GASTO',
-        gastoNew
+        gasto
     };
     const state = gastosReducer(gastos, action);
-    expect(state).toEqual([...gastos, gastoNew]);
+    expect(state).toEqual([...gastos, gasto]);
 });
 
 test('Deberia EDIT_GASTO', () => {
     
-    const gastoEdit = 'Gas EDIT';
+    const descrip = 'Gas EDIT';
     const action = {
         type: 'EDIT_GASTO',
         id: gastos[0].id,
         updates: {
-            descrip: gastoEdit
+            descrip
         }
     };
 
     const state = gastosReducer(gastos, action);
-    expect(state[0].descrip).toBe( gastoEdit );
+    expect(state[0].descrip).toBe( descrip );
 });
 
 test('NO deberia EDIT_GASTO si no encuentra ID', () => {
