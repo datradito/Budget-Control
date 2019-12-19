@@ -24,10 +24,10 @@ export class FiltrosListaGasto extends React.Component{
     };
 
     onSortChange = (e) => {
-        if(e.target.value==='fecha'){
+        if(e.target.value==='date'){
             this.props.sortByFecha();
         }
-        else if(e.target.value==='importe'){
+        else if(e.target.value==='amount'){
             this.props.sortByImporte();
         }
     };
@@ -50,8 +50,8 @@ export class FiltrosListaGasto extends React.Component{
                 value={this.props.filters.sortBy}
                 onChange={ this.onSortChange }
             >
-                <option value="Fecha">Fecha</option>
-                <option value="Importe">Importe</option>
+                <option value="date">Fecha</option>
+                <option value="amount">Importe</option>
             </select>
 
             <DateRangePicker

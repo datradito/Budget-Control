@@ -1,3 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Deberia render EditGastosPage 1`] = `undefined`;
+exports[`Deberia render EditGastosPage 1`] = `
+<div>
+  <FormGasto
+    gasto={
+      Object {
+        "creadoAt": 345600000,
+        "descrip": "Varios",
+        "id": "3",
+        "importe": 4500,
+        "nota": "",
+      }
+    }
+    onSubmit={[Function]}
+  />
+  <button
+    onClick={[Function]}
+  >
+    Borrar
+  </button>
+</div>
+`;

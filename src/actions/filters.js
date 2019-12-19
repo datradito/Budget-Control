@@ -6,13 +6,13 @@ export const setTextFilter = (  text = '' ) => ({
 });
 
 //SORT_BY_DATE
-export const sortByFecha = ( sortBy = 'fecha') => ({
+export const sortByFecha = ( sortBy = 'date') => ({
     type: 'SORT_BY_DATE',
     sortBy
 });
 
 //SORT_BY_AMOUNT
-export const sortByImporte = ( sortBy = 'importe') => ({
+export const sortByImporte = ( sortBy = 'amount') => ({
     type: 'SORT_BY_AMOUNT',
     sortBy
 });

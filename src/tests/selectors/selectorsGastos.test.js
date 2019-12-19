@@ -8,7 +8,7 @@ import gastos from '../fixtures/gastos';
 test('deberia comenzar test de Selector por Texto', () => {
     const filter = {
         text: 'a',
-        sortBy: 'fecha',
+        sortBy: 'date',
         FechaInicio: undefined,
         FechaFin: undefined
     }
@@ -21,7 +21,7 @@ test('deberia comenzar test de Selector por Texto', () => {
 test('deberia comenzar test de Selector por FechaInicio', () => {
     const filter = {
         text: '',
-        sortBy: 'fecha',
+        sortBy: 'date',
         FechaInicio: moment(0),
         FechaFin: undefined
     };
@@ -35,7 +35,7 @@ test('deberia comenzar test de Selector por FechaInicio', () => {
 test('deberia comenzar test de Selector por FechaFin', () => {
     const filter = {
         text: '',
-        sortBy: 'fecha',
+        sortBy: 'date',
         FechaInicio: undefined,
         FechaFin: moment(0).add(5, 'days')
     };
@@ -49,7 +49,7 @@ test('deberia comenzar test de Selector por FechaFin', () => {
 test('deberia comenzar test de Selector: Orden por Fecha', () => {
     const filter = {
         text: '',
-        sortBy: 'fecha',
+        sortBy: 'date',
         FechaInicio: undefined,
         FechaFin: undefined
     };
@@ -63,7 +63,7 @@ test('deberia comenzar test de Selector: Orden por Fecha', () => {
 test('deberia comenzar test de Selector: Orden por Importe', () => {
     const filter = {
         text: '',
-        sortBy: 'importe',
+        sortBy: 'amount',
         FechaInicio: undefined,
         FechaFin: undefined
     };

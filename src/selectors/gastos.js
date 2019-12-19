@@ -18,11 +18,11 @@ export default (gastos, { text, sortBy, fechaInicio, fechaFin}) => {
         //ordeno por fecha de menor a mayor, e importe de mayor a menor. Ver  array.sort()
     }).sort((a, b ) => {
         //ordeno fecha
-        if (sortBy === 'fecha') {
+        if (sortBy === 'date') {
             return a.creadoAt < b.creadoAt ? 1 : -1; //ver compare en .sort()
         }
         //ordeno importe
-        else if(sortBy === 'importe'){
+        else if(sortBy === 'amount'){
              return a.importe < b.importe ? 1 : -1;
         }
     });
