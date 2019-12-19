@@ -1,6 +1,6 @@
 import { createStore, combineReducers} from 'redux';
-import gastosReducer from '../reducers/gastos';
-import filterReducer from '../reducers/filters';
+import gastosReducer from '../reducers/gastosReducer';
+import filterReducer from '../reducers/filtersReducer';
 //import thunk from 'redux-thunk';
 
 

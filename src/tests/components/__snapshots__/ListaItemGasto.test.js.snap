@@ -12,11 +12,10 @@ exports[`Deberia render ListaItemGasto con gastos 1`] = `
     </h3>
   </Link>
   <p>
-     Importe: $
-    195
-     - Fecha: 
-    0
-     milisegundos
+    Importe: $
+    $1.95
+    - Fecha: 
+    31st December, 1969
   </p>
   <p>
     ID: 
