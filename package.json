@@ -10,7 +10,7 @@
     "dev-server": "webpack-dev-server --watch",
     "test": "jest --config=jest.config.json --watch",
     "clearCache": "jest --clearCache",
-    "start": "node src/server/server.js",
+    "start": "node server/server.js",
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
