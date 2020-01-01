@@ -14,9 +14,9 @@ export class FiltrosListaGasto extends React.Component{
     };
 
     //SEGUN react-dates library
-    onDatesChange = ({ fechaInicio , fechaFin}) => {
-        this.props.setFechaInicio(fechaInicio);
-        this.props.setFechaFin(fechaFin);
+    onDatesChange = ({ startDate , endDate }) => {
+        this.props.setFechaInicio(startDate);
+        this.props.setFechaFin(endDate);
     };
 
     onFocusChange = (calendarFocused) => {
@@ -44,8 +44,8 @@ export class FiltrosListaGasto extends React.Component{
                 //Tomo el valor text del filters en el store
                 value={this.props.filters.text} 
                 //Accedo a .dispatch() desde las props porque me lo envia connect()
-                onChange={this.onTextChange} />
-
+                onChange={this.onTextChange}
+            />
             <select 
                 value={this.props.filters.sortBy}
                 onChange={ this.onSortChange }

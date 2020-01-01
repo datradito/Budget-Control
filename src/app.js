@@ -24,7 +24,7 @@ store.dispatch(addGasto( { descrip: 'ticket Santi', importe:50.00, creadoAt:-100
 store.dispatch(addGasto( { descrip: 'ticket Giuli', importe:25.00, creadoAt:100} ));
 
 const state = store.getState();
-const gastoVisible =getGastosVisibles(state.gastos, state.filters);
+const gastoVisible = getGastosVisibles(state.gastos, state.filters);
 console.log('Filtro text aplicado')
 console.log(gastoVisible);
 

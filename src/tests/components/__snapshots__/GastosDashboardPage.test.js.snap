@@ -2,6 +2,7 @@
 
 exports[`Deberia render GastosDashboardPage 1`] = `
 <div>
+  <Connect(GastosSummary) />
   <Connect(FiltrosListaGasto) />
   <Connect(ListaGasto) />
 </div>

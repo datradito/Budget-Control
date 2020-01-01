@@ -1,7 +1,9 @@
 import * as firebase from 'firebase';
 
+const yourAPI_key= 'AIzaSyCMuZdVuszEGBrBIJHEFsIfIcZLJOvQanY';
+
 const config = {
-    apiKey: "AIzaSyCMuZdVuszEGBrBIJHEFsIfIcZLJOvQanY",
+    apiKey: yourAPI_key,
     authDomain: "controlgastos-5b51a.firebaseapp.com",
     databaseURL: "https://controlgastos-5b51a.firebaseio.com",
     projectId: "controlgastos-5b51a",

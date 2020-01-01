@@ -12,7 +12,7 @@ const ListaItemGasto = ({ id, descrip, importe, creadoAt}) => (
 
         {/*como las props me vienen destructuradas no utilizo prop.importe x ej*/}
         <p> 
-            Importe: ${numeral(importe / 100).format('$0,0.00')} 
+            Importe: {numeral(importe / 100).format('$0,0.00')} 
             - 
             Fecha: {moment(creadoAt).format('Do MMMM, YYYY')}</p>
         <p>ID: {id} </p>
