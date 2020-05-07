@@ -1,4 +1,6 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase';
+
 
 //EXPORTO POR NOMBRE, LUEGO ELIJO AL IMPORTAR
 //ADD_GASTO - action generator
@@ -21,7 +23,7 @@ export const startAddGasto = (( gastoDato = {} ) => {
 
         const gasto = { descrip, note, importe, creadoAt };
 
-        database.ref('gasto').push(gasto)
+        return database.ref('gastos').push(gasto)
         //pasando ref tengo acceso al .key desde firebase
         .then((ref) => {
             dispatch(addGasto({
