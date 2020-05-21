@@ -21,10 +21,12 @@ ReactDOM.render(jsx, document.getElementById('app'));
 
 // import getGastosVisibles from './selectors/gastos';
 
+
 // const state = store.getState();
 // const gastoVisible =getGastosVisibles(state.gastos, state.filters);
 // console.log('Filtro text aplicado')
 // console.log(gastoVisible);
+
 
 // console.log('Total de Gastos')
 // console.log(store.getState( ));

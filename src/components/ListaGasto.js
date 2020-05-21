@@ -19,7 +19,7 @@ export const ListaGasto = (props) => (
     <div>
         {
             props.gastos.length === 0 ? (
-                <p>Sin Gastos</p>
+                <h2>Sin Gastos</h2>
             ) : (
                 props.gastos.map((gasto) => {
                     return <ListaItemGasto key={gasto.id} {...gasto}/>
@@ -27,7 +27,6 @@ export const ListaGasto = (props) => (
             )
         }
 
-        <p>Cantidad de gastos: {props.gastos.length}</p>
     </div>
 );
 

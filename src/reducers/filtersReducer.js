@@ -50,5 +50,3 @@ export default (state = filterReducerDefault, action) => {
             return state;
     }
 };
-
-//export default filterReducer;
