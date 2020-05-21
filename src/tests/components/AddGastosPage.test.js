@@ -7,12 +7,12 @@ import gastos from '../fixtures/gastos';
  * https://jestjs.io/docs/en/api#beforeeachfn-timeout
  */
 
-let addGasto, history, wrapper;
+let startAddGasto, history, wrapper;
 
 beforeEach(() => {
-    addGasto = jest.fn();
+    startAddGasto = jest.fn();
     history = { push: jest.fn() };
-    wrapper = shallow(<AddGastosPage addGasto={addGasto} history={history} />);
+    wrapper = shallow(<AddGastosPage startAddGasto={startAddGasto} history={history} />);
 })
 
 test('Deberia render AddGastosPage', () => {
@@ -22,5 +22,5 @@ test('Deberia render AddGastosPage', () => {
 test('Deberia handle onSubmit', () => {
     wrapper.find('FormGasto').prop('onSubmit')(gastos[1]);
     expect(history.push).toHaveBeenLastCalledWith('./');
-    expect(addGasto).toHaveBeenLastCalledWith(gastos[1]);
+    expect(startAddGasto).toHaveBeenLastCalledWith(gastos[1]);
 }); 

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import FormGasto from './FormGasto';
-import { addGasto } from '../actions/gastos';
+import { startAddGasto } from '../actions/gastos';
 
 export class AddGastosPage extends React.Component {
     onSubmit = (gasto) => {
-        this.props.addGasto(gasto);
+        this.props.startAddGasto(gasto);
         this.props.history.push('./'); 
     };
     render() {
@@ -23,7 +23,7 @@ export class AddGastosPage extends React.Component {
  * https://react-redux.js.org/using-react-redux/connect-mapdispatch
  */
 const mapDispatchToProps = (dispatch) => ({
-    addGasto: (gasto) => dispatch(addGasto(gasto))
+    startAddGasto: (gasto) => dispatch(startAddGasto(gasto))
 })
 export default connect(undefined, mapDispatchToProps)(AddGastosPage);
 

@@ -1,25 +1,39 @@
 import uuid from 'uuid';
+import database from '../firebase/firebase';
+
 
 //EXPORTO POR NOMBRE, LUEGO ELIJO AL IMPORTAR
 //ADD_GASTO - action generator
 /* const funcAction =  ({} = {}) => ( {} ) */
 
-export const addGasto =  ({
-    //destructuro el objeto gasto, e incluyo los defaults 
-    descrip = '',
-    note = '',
-    importe = 0,
-    creadoAt = 0
-} = {}) => ({
+export const addGasto =  (gasto) => ({
     type: 'ADD_GASTO',
-    gasto: {
-        id: uuid(),
-             descrip,
-             note,
-             importe,
-             creadoAt
-    }
+    gasto
 });
+
+//ACCION COMPATIBLE PARA ENVIAR CON THUNK
+export const startAddGasto = (( gastoDato = {} ) => {
+    return (dispatch) => {
+        const {
+            descrip= '',
+            note= '',
+            importe= 0, 
+            creadoAt= 0,
+        } = gastoDato;
+
+        const gasto = { descrip, note, importe, creadoAt };
+
+        return database.ref('gastos').push(gasto)
+        //pasando ref tengo acceso al .key desde firebase
+        .then((ref) => {
+            dispatch(addGasto({
+                id: ref.key,
+                ...gasto
+            }));
+        });
+    };
+});
+
 //REMOVE_GASTO
 export const removeGasto = ( { id } ) => ({
         type: 'REMOVE_GASTO',
@@ -54,23 +68,4 @@ export const editGasto = ( id, updates ) => ({
 //     });
 
 
-// //ACCION COMPATIBLE PARA ENVIAR CON THUNK
-// export startAddGasto = ( ( gastoDato = {} ) => {
-//     return (dispatch) => {
-//         const {
-//             descrip= '',
-//             note= '',
-//             importe= 0, //no uso decimales
-//             creadoAt= 0,
-//         } = gastoDato;
-//         const gasto = { descrip, note, importe, creadoAt };
 
-//         database.ref('gasto').push(gasto)
-//         .then( (ref) => {
-//             dispatch(addGasto({
-//                 id: ref.key,
-//                 ...gasto
-//             }));
-//         });
-//     };
-// });

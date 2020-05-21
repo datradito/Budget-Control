@@ -3,12 +3,12 @@ import * as firebase from 'firebase';
 const yourAPI_key= 'AIzaSyCMuZdVuszEGBrBIJHEFsIfIcZLJOvQanY';
 
 const config = {
-    apiKey: yourAPI_key,
-    authDomain: "controlgastos-5b51a.firebaseapp.com",
-    databaseURL: "https://controlgastos-5b51a.firebaseio.com",
-    projectId: "controlgastos-5b51a",
-    storageBucket: "controlgastos-5b51a.appspot.com",
-    messagingSenderId: "580417984576"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
   };
 
 //inicializo firebase
@@ -18,29 +18,64 @@ const database = firebase.database();
 
 export { firebase, database as default };
 
+//ARRAY DATA I
+//push() genera automaticamente un ID unico en la db
 
-// database.ref('gastos').on('child_changed', (snapshot) => {
-//     console.log(snapshot.key);
-//     console.log(snapshot.val());
+// database.ref('gastos').push({
+//     descrip: 'gasto 1',
+//     notas: 'una nota',
+//     importe: 125.50,
+//     creadoAt: Date()
 // });
 
 
-
-//Ejemplo .forEach()
+//ARRAY DATA II
+//
 
 // database.ref('gastos').on('value', (snapshot) => {
-//     const gastos= [];
-//     snapshot.forEach((childSnapShot) => {
-//         //este push() es method del array no de FireBase.
-//         gastos.push({
-//             id: childSnapShot.key,
-//             ...childSnapShot.val(),
-//         });
-//     });
-//     console.log(gastos);
+//   const gastos= [];
+//   snapshot.forEach((childSnapShot) => {
+//       //este push() es method del array no de FireBase.
+//       // .key() me trae el ID del childSnapShot
+//       gastos.push({
+//           id: childSnapShot.key,
+//           ...childSnapShot.val(),
+//       });
+//   });
+//   console.log(gastos);
 // });
 
-//METODO on()
+//FETCH DATA
+
+// database.once('value')
+//   .then((snapshot)=>{
+//     const val = snapshot.val();
+//     console.log('DATA', val);
+//   })
+//   .catch((e)=>{
+//     console.log('Error:', e);
+//   })
+
+//   const onValueChange = database.ref().on('value', (snapshot)=>{
+//     console.log('Data: ', snapshot.val());
+//   }, (e) => {
+//     console.log('Hubo un error al obtener los datos.', e);
+//   });
+
+//   setTimeout(()=>{
+//     database.ref('age').set(29);
+//   }, 3500);
+
+//   //anulo el seguimiento de los datos en la db
+//   setTimeout(()=>{
+//     database.ref().off(onValueChange);
+//   }, 7000);
+
+//   setTimeout(()=>{
+//     database.ref('age').set(31);
+//   }, 10500);
+
+  //METODO on() devuelve el snapshot de la db cada vez q se modifica un dato
 //eventType -> "value", "child_added", "child_changed", "child_removed", or "child_moved."
 
 // database.ref().on('value', (snapshot) => {
@@ -50,13 +85,12 @@ export { firebase, database as default };
 // })
 
 
-//METODO push() genera automaticamente un ID unico en la db
-// database.ref('gastos').push({
-//     descrip: 'gasto 1',
-//     notas: 'una nota',
-//     importe: 125.50,
-//     creadoAt: Date()
+// database.ref('gastos').on('child_changed', (snapshot) => {
+//     console.log(snapshot.key);
+//     console.log(snapshot.val());
 // });
+
+
 
 // database.ref().set({
 //     name: 'Daniel Agustin',

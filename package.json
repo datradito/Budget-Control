@@ -8,10 +8,12 @@
     "build": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server --watch",
-    "test": "jest --config=jest.config.json --watch",
+    "_test_comment": "la dependencia cross-env me permite setear las variables de entorno",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json --watch",
     "clearCache": "jest --clearCache",
     "start": "node server/server.js",
-    "heroku-postbuild": "npm run build:prod"
+    "heroku-postbuild": "npm run build:prod",
+    "heroku": ""
   },
   "dependencies": {
     "@babel/core": "^7.4.5",
@@ -40,6 +42,7 @@
     "react-router-dom": "^5.1.2",
     "redux": "3.7.2",
     "redux-logger": "^3.0.6",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "2.2.0",
     "sass-loader": "6.0.6",
     "style-loader": "0.18.2",
@@ -49,6 +52,8 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.5.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
     "enzyme-adapter-react-16": "^1.0.0",
     "enzyme-to-json": "^3.0.1",
     "jest": "^24.9.0",
