@@ -5,7 +5,7 @@ import filterReducer from '../reducers/filtersReducer';
 //import thunk from 'redux-thunk';
 
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 
 export default () => {
