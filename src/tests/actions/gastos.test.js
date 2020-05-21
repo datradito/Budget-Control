@@ -6,7 +6,7 @@ import gastos from '../fixtures/gastos';
 import { database } from 'firebase';
 
 const middlewares = [thunk, logger]
-const createMockStore = configureMockStore(thunk)
+const createMockStore = configureMockStore(middlewares)
 
 //removeGasto:
 test('deberia ver remove gastos action object', () => {

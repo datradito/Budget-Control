@@ -1,14 +1,12 @@
 import * as firebase from 'firebase';
 
-const FirebaseKEY="AIzaSyCMuZdVuszEGBrBIJHEFsIfIcZLJOvQanY";
-
 const config = {
-    apiKey: "AIzaSyCMuZdVuszEGBrBIJHEFsIfIcZLJOvQanY",
-    authDomain: "controlgastos-5b51a.firebaseapp.com",
-    databaseURL: "https://controlgastos-5b51a.firebaseio.com",
-    projectId: "controlgastos-5b51a",
-    storageBucket: "controlgastos-5b51a.appspot.com",
-    messagingSenderId: "580417984576"
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.FIREBASE_DATABASE_URL,
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID
   };
 
 //inicializo firebase
